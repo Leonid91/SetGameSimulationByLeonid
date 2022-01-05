@@ -63,5 +63,17 @@ namespace SetGameSimulationByLeonid
             }
         }
         #endregion
+
+        public bool IsEqual(Card card)
+        {
+            if(card.Color == Color && card.Symbol == Symbol && card.Shading == Shading && card.Number == Number)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -34,6 +34,8 @@ namespace SetGameSimulationByLeonid
 
                 N -= 1;
             }
+
+            List<CardSet> cardSetlist = CardSet.GetCardSet(cardList);
         }
     }
 }
