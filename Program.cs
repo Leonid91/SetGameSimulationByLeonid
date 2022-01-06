@@ -36,7 +36,6 @@ namespace SetGameSimulationByLeonid
             }
 
             Console.WriteLine("\n");
-
             List<CardSet> fullCardSetlist = CardSet.GetFullSetList(cardList);
             Console.WriteLine("Number of all sets : " + fullCardSetlist.Count);
 
@@ -47,7 +46,6 @@ namespace SetGameSimulationByLeonid
             //}
 
             Console.WriteLine("\n");
-
             List<CardSet> disjointCardSet = CardSet.GetDisjointSetList(fullCardSetlist);
             Console.WriteLine("Number of disjoint sets : " + disjointCardSet.Count);
 

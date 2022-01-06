@@ -115,51 +115,73 @@ namespace SetGameSimulationByLeonid
 
         private static bool IsSet(Card card1, Card card2, Card card3)
         {
+            bool result = false;
+
             if
                 (
-                    !(
-                         (card1.Color.Equals(card2.Color)) && (card2.Color.Equals(card3.Color)) // All equal
+                    (
+                         (String.Equals(card1.Color, card2.Color)) && (String.Equals(card2.Color, card3.Color)) // All equal
                          ||
-                         (!card1.Color.Equals(card2.Color)) && (!card1.Color.Equals(card3.Color)) && (!card2.Color.Equals(card3.Color)) // All not equal
+                         (!String.Equals(card1.Color, card2.Color)) && (!String.Equals(card1.Color, card3.Color)) && (!String.Equals(card2.Color, card3.Color)) // All not equal
                     )
                 )
             {
-                return false;
+                result = true;
             }
-            if
-                (
-                    !(
-                         (card1.Symbol.Equals(card2.Symbol)) && (card2.Symbol.Equals(card3.Symbol)) // All equal
-                         ||
-                         (!card1.Symbol.Equals(card2.Symbol)) && (!card1.Symbol.Equals(card3.Symbol)) && (!card2.Symbol.Equals(card3.Symbol)) // All not equal
-                    )
-                )
+            else
             {
                 return false;
             }
+
             if
                 (
-                    !(
-                         (card1.Shading.Equals(card2.Shading)) && (card2.Shading.Equals(card3.Shading)) // All equal
+                    (
+                         (Char.Equals(card1.Symbol, card2.Symbol)) && (Char.Equals(card2.Symbol, card3.Symbol)) // All equal
                          ||
-                         (!card1.Shading.Equals(card2.Shading)) && (!card1.Shading.Equals(card3.Shading)) && (!card2.Shading.Equals(card3.Shading)) // All not equal
+                         (!Char.Equals(card1.Symbol, card2.Symbol)) && (!Char.Equals(card1.Symbol, card3.Symbol)) && (!Char.Equals(card2.Symbol, card3.Symbol)) // All not equal
                     )
                 )
             {
+                result = true;
+            }
+            else
+            {
                 return false;
             }
+
             if
                 (
-                    !(
+                    (
+                         (Char.Equals(card1.Shading, card2.Shading)) && (Char.Equals(card2.Shading, card3.Shading)) // All equal
+                         ||
+                         (!Char.Equals(card1.Shading, card2.Shading)) && (!Char.Equals(card1.Shading, card3.Shading)) && (!Char.Equals(card2.Shading, card3.Shading)) // All not equal
+                    )
+                )
+            {
+                result = true;
+            }
+            else
+            {
+                return false;
+            }
+
+            if
+                (
+                    (
                          (card1.Number  == card2.Number) && (card2.Number == card3.Number) // All equal
                          ||
                          (card1.Number == card2.Number) && (card1.Number == card3.Number) && (card2.Number == card3.Number) // All not equal
                     )
                 )
             {
+                result = true;
+            }
+            else
+            {
                 return false;
             }
-            return true;
+
+            return result;
         }
     }
 }
