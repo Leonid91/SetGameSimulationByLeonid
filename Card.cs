@@ -66,17 +66,7 @@ namespace SetGameSimulationByLeonid
 
         public bool IsEqual(Card otherCard)
         {
-            if(
-                !(Color == otherCard.Color) &&
-                !(Symbol == otherCard.Symbol) &&
-                !(Shading == otherCard.Shading) &&
-                !(Number == otherCard.Number)
-              )
-            {
-                return false;
-            }
-
-            return true;
+            return Equals(Color, otherCard.Color) && Equals(Symbol, otherCard.Symbol) && Equals(Shading, otherCard.Shading) && Equals(Number, otherCard.Number);
         }
     }
 }
