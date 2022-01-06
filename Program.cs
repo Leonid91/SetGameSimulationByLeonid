@@ -35,7 +35,8 @@ namespace SetGameSimulationByLeonid
                 N -= 1;
             }
 
-            List<CardSet> cardSetlist = CardSet.GetCardSet(cardList);
+            List<CardSet> cardSetlist = CardSet.GetAllSets(cardList);
+            Console.WriteLine("There are " + cardSetlist.Count + " sets : ");
         }
     }
 }
