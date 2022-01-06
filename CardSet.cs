@@ -85,7 +85,15 @@ namespace SetGameSimulationByLeonid
                     if
                         (
                             (cardSetOne.CardSetList[0].IsEqual(cardSetTwo.CardSetList[0])) ||
+                            (cardSetOne.CardSetList[0].IsEqual(cardSetTwo.CardSetList[1])) ||
+                            (cardSetOne.CardSetList[0].IsEqual(cardSetTwo.CardSetList[2])) ||
+
+                            (cardSetOne.CardSetList[1].IsEqual(cardSetTwo.CardSetList[0])) ||
                             (cardSetOne.CardSetList[1].IsEqual(cardSetTwo.CardSetList[1])) ||
+                            (cardSetOne.CardSetList[1].IsEqual(cardSetTwo.CardSetList[2])) ||
+
+                            (cardSetOne.CardSetList[2].IsEqual(cardSetTwo.CardSetList[0])) ||
+                            (cardSetOne.CardSetList[2].IsEqual(cardSetTwo.CardSetList[1])) ||
                             (cardSetOne.CardSetList[2].IsEqual(cardSetTwo.CardSetList[2]))
                         )
                     {
@@ -110,31 +118,9 @@ namespace SetGameSimulationByLeonid
             if
                 (
                     !(
-                         (card1.Color == card2.Color) && (card2.Color == card3.Color) // All equal
+                         (card1.Color.Equals(card2.Color)) && (card2.Color.Equals(card3.Color)) // All equal
                          ||
-                         (card1.Color != card2.Color) && (card1.Color != card3.Color) && (card2.Color != card3.Color) // All not equal
-                    )
-                )
-            {
-                return false;
-            }
-            if
-                 (
-                     !(
-                          (card1.Symbol == card2.Symbol) && (card2.Symbol == card3.Symbol) // All equal
-                          ||
-                          (card1.Symbol != card2.Symbol) && (card1.Symbol != card3.Symbol) && (card2.Symbol != card3.Symbol) // All not equal
-                     )
-                 )
-            {
-                return false;
-            }
-            if
-                (
-                    !(
-                         (card1.Shading == card2.Shading) && (card2.Shading == card3.Shading) // All equal
-                         ||
-                         (card1.Shading != card2.Shading) && (card1.Shading != card3.Shading) && (card2.Shading != card3.Shading) // All not equal
+                         (!card1.Color.Equals(card2.Color)) && (!card1.Color.Equals(card3.Color)) && (!card2.Color.Equals(card3.Color)) // All not equal
                     )
                 )
             {
@@ -143,9 +129,31 @@ namespace SetGameSimulationByLeonid
             if
                 (
                     !(
-                         (card1.Number == card2.Number) && (card2.Number == card3.Number) // All equal
+                         (card1.Symbol.Equals(card2.Symbol)) && (card2.Symbol.Equals(card3.Symbol)) // All equal
                          ||
-                         (card1.Number != card2.Number) && (card1.Number != card3.Number) && (card2.Number != card3.Number) // All not equal
+                         (!card1.Symbol.Equals(card2.Symbol)) && (!card1.Symbol.Equals(card3.Symbol)) && (!card2.Symbol.Equals(card3.Symbol)) // All not equal
+                    )
+                )
+            {
+                return false;
+            }
+            if
+                (
+                    !(
+                         (card1.Shading.Equals(card2.Shading)) && (card2.Shading.Equals(card3.Shading)) // All equal
+                         ||
+                         (!card1.Shading.Equals(card2.Shading)) && (!card1.Shading.Equals(card3.Shading)) && (!card2.Shading.Equals(card3.Shading)) // All not equal
+                    )
+                )
+            {
+                return false;
+            }
+            if
+                (
+                    !(
+                         (card1.Number  == card2.Number) && (card2.Number == card3.Number) // All equal
+                         ||
+                         (card1.Number == card2.Number) && (card1.Number == card3.Number) && (card2.Number == card3.Number) // All not equal
                     )
                 )
             {
