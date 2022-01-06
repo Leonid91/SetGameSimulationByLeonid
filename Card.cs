@@ -26,16 +26,16 @@ namespace SetGameSimulationByLeonid
         #region Construction of the Card model
         private void SetColor(List<string> propertyString)
         {
-            Color = propertyString[0].ToString();
+            Color = propertyString[0].ToString().Trim();
         }
 
         private void SetNumber(List<string> propertyString)
         {
-            Number = propertyString[1].ToString().Length;
+            Number = propertyString[1].ToString().Trim().Length;
         }
         private void SetShadingAndSymbol(List<string> propertyString)
         {
-            string shadingWithNumbers = propertyString[1].Substring(0, 1);
+            string shadingWithNumbers = propertyString[1].Substring(0, 1).Trim();
             Shading = shadingWithNumbers[0];
             SetSymbol(propertyString);
         }
