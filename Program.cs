@@ -35,10 +35,27 @@ namespace SetGameSimulationByLeonid
                 N -= 1;
             }
 
+            Console.WriteLine("\n");
+
             List<CardSet> fullCardSetlist = CardSet.GetFullSetList(cardList);
-            Console.WriteLine("There are " + fullCardSetlist.Count + " sets : ");
-            List<CardSet> disjointCardSetlist = CardSet.GetDisjointSetList(cardList);
-            Console.WriteLine("There are " + disjointCardSetlist.Count + " sets : ");
+            Console.WriteLine("Number of all sets : " + fullCardSetlist.Count);
+
+            //foreach (var set in fullCardSetlist)
+            //{
+            //    set.Display();
+            //    Console.WriteLine("\n");
+            //}
+
+            Console.WriteLine("\n");
+
+            List<CardSet> disjointCardSet = CardSet.GetDisjointSetList(fullCardSetlist);
+            Console.WriteLine("Number of disjoint sets : " + disjointCardSet.Count);
+
+            foreach (var set in disjointCardSet)
+            {
+                set.Display();
+                Console.WriteLine("\n");
+            }
         }
     }
 }

@@ -64,64 +64,18 @@ namespace SetGameSimulationByLeonid
         }
         #endregion
 
-        public bool IsEqual(Card card)
+        public bool IsEqual(Card otherCard)
         {
-            if(card.Color == Color && card.Symbol == Symbol && card.Shading == Shading && card.Number == Number)
-            {
-                return true;
-            }
-            else
+            if(
+                !(Color == otherCard.Color) &&
+                !(Symbol == otherCard.Symbol) &&
+                !(Shading == otherCard.Shading) &&
+                !(Number == otherCard.Number)
+              )
             {
                 return false;
             }
-        }
 
-        public static bool IsSet(Card card1, Card card2, Card card3)
-        {
-            if
-                (
-                    !(
-                         (card1.Color == card2.Color) && (card2.Color == card3.Color) // All equal
-                         ||
-                         (card1.Color != card2.Color) && (card1.Color != card3.Color) && (card2.Color != card3.Color) // All not equal
-                    )
-                )
-            {
-                return false;
-            }
-            if
-                 (
-                     !(
-                          (card1.Symbol == card2.Symbol) && (card2.Symbol == card3.Symbol) // All equal
-                          ||
-                          (card1.Symbol != card2.Symbol) && (card1.Symbol != card3.Symbol) && (card2.Symbol != card3.Symbol) // All not equal
-                     )
-                 )
-            {
-                return false;
-            }
-            if
-                (
-                    !(
-                         (card1.Shading == card2.Shading) && (card2.Shading == card3.Shading) // All equal
-                         ||
-                         (card1.Shading != card2.Shading) && (card1.Shading != card3.Shading) && (card2.Shading != card3.Shading) // All not equal
-                    )
-                )
-            {
-                return false;
-            }
-            if
-                (
-                    !(
-                         (card1.Number == card2.Number) && (card2.Number == card3.Number) // All equal
-                         ||
-                         (card1.Number != card2.Number) && (card1.Number != card3.Number) && (card2.Number != card3.Number) // All not equal
-                    )
-                )
-            {
-                return false;
-            }
             return true;
         }
     }
