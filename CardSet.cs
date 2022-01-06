@@ -21,7 +21,7 @@ namespace SetGameSimulationByLeonid
             }
         }
 
-        public static List<CardSet> GetAllSets(List<Card> cardList)
+        public static List<CardSet> GetFullSetList(List<Card> cardList)
         {
             var result = new List<CardSet>();
 
@@ -57,5 +57,42 @@ namespace SetGameSimulationByLeonid
             }
             return result;
         }
+
+        public static List<CardSet> GetDisjointSetList(List<Card> cardList)
+        {
+            var result = new List<CardSet>();
+            List<CardSet> fullCardSetList = GetFullSetList(cardList);
+
+            foreach (var set in fullCardSetList)
+            {
+                if(CardSet.GetSamePropertiesCount(set) == 0)
+                {
+                    result.Add(set);
+                }
+            }
+
+            return result;
+        }
+
+        private static int GetSamePropertiesCount(CardSet cardSet)
+        {
+            if(cardSet.CardSetList.Count != 3)
+            {
+                throw new Exception("The card set must contains only 3 cards.");
+            }
+
+            Card cardOne = cardSet.CardSetList[0];
+            Card cardTwo = cardSet.CardSetList[1];
+            Card cardThree = cardSet.CardSetList[2];
+
+            int samePropertiesCount = 0;
+
+            if(cardOne.Color == cardTwo.Color && cardTwo.Color == cardThree.Color) { samePropertiesCount++; }
+            if(cardOne.Symbol == cardTwo.Symbol && cardTwo.Symbol == cardThree.Symbol) { samePropertiesCount++; }
+            if(cardOne.Shading == cardTwo.Shading && cardTwo.Shading == cardThree.Shading) { samePropertiesCount++; }
+            if(cardOne.Number == cardTwo.Number && cardTwo.Number == cardThree.Number) { samePropertiesCount++; }
+
+            return samePropertiesCount;
+        } 
     }
 }
