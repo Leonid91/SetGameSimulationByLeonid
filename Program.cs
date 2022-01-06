@@ -37,7 +37,7 @@ namespace SetGameSimulationByLeonid
 
             Console.WriteLine("\n");
             List<CardSet> fullCardSetlist = CardSet.GetFullSetList(cardList);
-            Console.WriteLine("Number of all sets : " + fullCardSetlist.Count);
+            Console.WriteLine("Number of sets : " + fullCardSetlist.Count);
 
             //foreach (var set in fullCardSetlist)
             //{
